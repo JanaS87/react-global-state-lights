@@ -1,10 +1,13 @@
 import Link from "../components/Link";
+import React from "react";
+import Lights from "@/components/Lights";
 
-export default function HomePage() {
+export default function HomePage({ lights }) {
+  const turnedOnLights = lights.filter((light) => light.isOn).length;
   return (
     <div>
       <h1>Home</h1>
-      <p>?? light(s) are on.</p>
+      <p>{turnedOnLights} light(s) are on.</p>
       <p>
         <Link href="/lights">All lights →</Link>
       </p>

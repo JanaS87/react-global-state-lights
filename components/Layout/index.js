@@ -26,10 +26,11 @@ const Content = styled.div`
   padding: 32px 0;
 `;
 
-export default function Layout({ children, isDimmed }) {
+export default function Layout({ children, lights }) {
+  const allLightsOff = lights.every((light) => !light.isOn);
   return (
     <StyledLayout>
-      <Background $isDimmed={isDimmed}>
+      <Background $isDimmed={allLightsOff}>
         <StyledImage src="/images/home.jpg" fill alt="" />
       </Background>
       <Content>{children}</Content>
